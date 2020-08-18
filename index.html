@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Make a Flavor log for the syrmise raw materials and essensial oils that we have. 
+nned to work with mySQL -->
+
+<head>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flavor Log</title>
+</head>
+
+<body>
+  <div class="row">
+    <form class="col s12">
+      <!-- first row enter the rm and check boxed for nat or art -->
+      <div class="row">
+
+        <div class="input-field col s6">
+          <input placeholder="Vanillin" id="rm_name" type="text" class="validate">
+          <label for="rm_name">Raw Material Name</label>
+        </div>
+
+        <p>
+          <label class="col s3">
+            <input type="checkbox" />
+            <span>Natural</span>
+          </label>
+        </p>
+        <p>
+          <label class="col s3">
+            <input type="checkbox" />
+            <span>Artificial</span>
+          </label>
+        </p>
+      </div>
+
+
+      <!-- 2nd row enter the ppm and  -->
+      <div class="row">
+        <p class="range-field col s3">
+          <label for="enter_ppm">Enter ppm</label>
+          <input type="range" id="test5" min="0" max="500" />
+        </p>
+      </div>
+
+      <!-- 3rd Row Describe the Info -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="description_rm">Description of Raw Material </label>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input disabled value="Disabled" id="disabled" type="text" class="validate">
+          <label for="disabled">Hello</label>
+        </div>
+      </div>
+
+    </form>
+  </div>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
