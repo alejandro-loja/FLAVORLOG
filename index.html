@@ -12,11 +12,12 @@ nned to work with mySQL -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Flavor Log</title>
+
 </head>
 
 <body>
   <div class="container">
-    <form class="col s12">
+    <form id="entry-form" class="col s12">
 
       <!-- 1st Row: Enter the Raw Material and check boxed for nat or art -->
       <div class="row">
@@ -53,8 +54,15 @@ nned to work with mySQL -->
           <label for="description_rm">Description of Raw Material </label>
         </div>
       </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="submit" value="Submit">
+        </div>
+      </div>
     </form>
   </div>
+
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
