@@ -1,4 +1,7 @@
 console.log('hello there');
 
-document.getElementById("entry-form").addEventListener("submit", console.log('submitted') );
+$( "#entry-form" ).submit(function( event ) {
+  console.log('Submit');
+  event.preventDefault();
+});
 
