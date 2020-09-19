@@ -1,13 +1,5 @@
-body {
-  background-color: #c4c4c4;
-}
-
-.intro-one {
-  background-color: #8a8a8a;
-  padding: 10px;
-}
-
-p {
+.container {
   color: darkblue;
+  border: red solid 2px !important;
 }
 /*# sourceMappingURL=styles.css.map */
