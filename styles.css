@@ -1,9 +1,9 @@
 body {
-  background-color: yellow;
+  background-color: rgba(255, 247, 0, 0.783);
 }
 
 .container {
-  background-color: white;
+  background-color: #fee7d5;
   color: darkblue;
   width: 80%;
   padding: 20px;
