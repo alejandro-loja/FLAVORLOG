@@ -1,5 +1,12 @@
+body {
+  background-color: yellow;
+}
+
 .container {
+  background-color: white;
   color: darkblue;
+  width: 80%;
+  padding: 20px;
   border: red solid 2px !important;
 }
 /*# sourceMappingURL=styles.css.map */

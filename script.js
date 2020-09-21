@@ -5,3 +5,4 @@ $( "#entry-form" ).submit(function( event ) {
   event.preventDefault();
 });
 
+$()

@@ -1,4 +1,11 @@
+body {
+  background-color: yellow;
+}
+
 .container {
-    color: darkblue;
-    border: red solid 2px !important;
-  }
+  background-color: white;
+  color: darkblue;
+  width: 80%;
+  padding: 20px;
+  border: red solid 2px !important;
+}
