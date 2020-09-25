@@ -19,53 +19,56 @@ nned to work with mySQL -->
 </head>
 
 <body class="bg-warning">
-  <div class="bg-info rounded m-2 p-4 container-md">
-    <form id="entry-form" class="">
-
-      <!-- 1st Row: Enter the Raw Material and check boxed for nat or art -->
-      <div class="row">
-        <div class="">
-          <label for="rm_name">Raw Material Name</label>
-          <input placeholder="Vanillin" id="rm-name" type="text" class="validate">
-          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+  <div class="container">
+    <div class="row vertical-center">
+      <div class="col-3"></div>
+      <form id="entry-form" class="col-6 my-auto shadow-lg bg-info rounded pad">
+        <!-- 1st Row: Enter the Raw Material and check boxed for nat or art -->
+        <div class="row">
+          <div class="">
+            <label for="rm_name">Raw Material Name</label>
+            <input placeholder="Vanillin" id="rm-name" type="text" class="validate">
+            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <p>
+            <label class="">
+              <input id="rm-natural" type="checkbox" />
+              <span>Natural</span>
+            </label>
+          </p>
+          <p>
+            <label class="">
+              <input id="rm-artificial" type="checkbox" />
+              <span>Artificial</span>
+            </label>
+          </p>
         </div>
-        <p>
-          <label class="">
-            <input id="rm-natural" type="checkbox" />
-            <span>Natural</span>
-          </label>
-        </p>
-        <p>
-          <label class="">
-            <input id="rm-artificial" type="checkbox" />
-            <span>Artificial</span>
-          </label>
-        </p>
-      </div>
 
-      <!-- 2nd Row: Enter the ppm and tba -->
-      <div class="row">
-        <p class="">
-          <label for="enter_ppm">Enter ppm</label>
-          <input type="range" id="test5" min="0" max="500" />
-        </p>
-      </div>
-
-      <!-- 3rd Row Describe the Info -->
-      <div class="row">
-        <div class="">
-          <textarea id="rm-description" class="materialize-textarea"></textarea>
-          <label for="description_rm">Description of Raw Material </label>
+        <!-- 2nd Row: Enter the ppm and tba -->
+        <div class="row">
+          <p class="">
+            <label for="enter_ppm">Enter ppm</label>
+            <input type="range" id="test5" min="0" max="500" />
+          </p>
         </div>
-      </div>
 
-      <!-- 4th Row is the Submit Button -->
-      <div class="row">
-        <div class="">
-          <input type="submit" value="Submit">
+        <!-- 3rd Row Describe the Info -->
+        <div class="row">
+          <div class="">
+            <textarea id="rm-description" class="materialize-textarea"></textarea>
+            <label for="description_rm">Description of Raw Material </label>
+          </div>
         </div>
-      </div>
-    </form>
+
+        <!-- 4th Row is the Submit Button -->
+        <div class="row">
+          <div class="">
+            <input type="submit" value="Submit">
+          </div>
+        </div>
+      </form>
+      <div class="col-3"></div>
+    </div>
   </div>
 
   <!-- Compiled and minified JavaScript -->
