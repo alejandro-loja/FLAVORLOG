@@ -18,15 +18,16 @@ nned to work with mySQL -->
 
 </head>
 
-<body>
-  <div class="container">
-    <form id="entry-form" class="p-4 m-2 mx-auto border border-primary b-1">
+<body class="bg-warning">
+  <div class="bg-info rounded m-2 p-4 container-md">
+    <form id="entry-form" class="">
 
       <!-- 1st Row: Enter the Raw Material and check boxed for nat or art -->
       <div class="row">
         <div class="">
-          <input placeholder="Vanillin" id="rm-name" type="text" class="validate">
           <label for="rm_name">Raw Material Name</label>
+          <input placeholder="Vanillin" id="rm-name" type="text" class="validate">
+          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <p>
           <label class="">
@@ -53,7 +54,7 @@ nned to work with mySQL -->
       <!-- 3rd Row Describe the Info -->
       <div class="row">
         <div class="">
-          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <textarea id="rm-description" class="materialize-textarea"></textarea>
           <label for="description_rm">Description of Raw Material </label>
         </div>
       </div>
