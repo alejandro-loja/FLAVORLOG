@@ -21,30 +21,33 @@ nned to work with mySQL -->
 <body class="bg-warning">
   <div class="container">
     <div class="row vertical-center">
-      <div class="col-3"></div>
-      <form id="entry-form" class="col-6 my-auto shadow-lg bg-info rounded pad">
+      <div class="col-2"></div>
+      <!-- This form element is the 2nd in 3 columns with a bigger width ie space and is horizontally centered. -->
+      <form id="entry-form" class="col-8 my-auto shadow-lg bg-danger rounded pad">
         <!-- 1st Row: Enter the Raw Material and check boxed for nat or art -->
+        <div class="form-group">
+          <label for="rm_name">Raw Material Name</label>
+          <input class="form-control" placeholder="..." id="rm-name" type="text" class="validate">
+          <small class="form-text text-muted">Enter a name of Flavor Chemical. </small>
+        </div>
+        <br/>
         <div class="row">
-          <div class="">
-            <label for="rm_name">Raw Material Name</label>
-            <input placeholder="Vanillin" id="rm-name" type="text" class="validate">
-            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-          <p>
-            <label class="">
+          <p class="col-6">
+            <label >
               <input id="rm-natural" type="checkbox" />
               <span>Natural</span>
             </label>
           </p>
-          <p>
-            <label class="">
+          <p class="col-6">
+            <label >
               <input id="rm-artificial" type="checkbox" />
               <span>Artificial</span>
             </label>
           </p>
         </div>
 
-        <!-- 2nd Row: Enter the ppm and tba -->
+
+        <!-- 3rd Row: Enter the ppm and tba -->
         <div class="row">
           <p class="">
             <label for="enter_ppm">Enter ppm</label>
@@ -52,22 +55,22 @@ nned to work with mySQL -->
           </p>
         </div>
 
-        <!-- 3rd Row Describe the Info -->
+        <!-- 4th Row Describe the Info -->
         <div class="row">
           <div class="">
-            <textarea id="rm-description" class="materialize-textarea"></textarea>
             <label for="description_rm">Description of Raw Material </label>
+            <textarea id="rm-description" class="materialize-textarea"></textarea>
           </div>
         </div>
 
-        <!-- 4th Row is the Submit Button -->
+        <!-- 5th Row is the Submit Button -->
         <div class="row">
           <div class="">
             <input type="submit" value="Submit">
           </div>
         </div>
       </form>
-      <div class="col-3"></div>
+      <div class="col-2"></div>
     </div>
   </div>
 
