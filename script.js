@@ -1,6 +1,12 @@
 $(document).ready(function () {
 
-
+  //Detect if anything written
+  function validateForm(string) {
+    if (string === "") {
+      alert("Name must be filled out");
+      return false;
+    }
+  }
   console.log('hello there');
 
   $("#entry-form").submit(function (event) {
@@ -12,13 +18,13 @@ $(document).ready(function () {
     // using .is(":checked") will give boolean to see if box is checked
     const rmNatChkBx = $("#rm-natural").is(":checked");
     const rmArtChkBx = $("#rm-artificial").is(":checked");
-    console.log(rmName,rmDesc,rmNatChkBx,rmArtChkBx);
-    // console.log($(".row"));
-    // console.log($("#rm_name").text());
+    const rmDosNum = $("#rm-dosage-number").val();
+    const rmDosUnit = $("#rm-dosage-unit").val();
+    console.log(rmName, rmDesc, rmNatChkBx, rmArtChkBx, rmDosNum, rmDosUnit);
+
+    validateForm(rmName);
   });
 
-  // $(window).click(function() {
-  //   console.log($("#rm_name").text());
-  // })
+
 
 });

@@ -24,51 +24,49 @@ nned to work with mySQL -->
       <div class="col-2"></div>
       <!-- This form element is the 2nd in 3 columns with a bigger width ie space and is horizontally centered. -->
       <form id="entry-form" class="col-8 my-auto shadow-lg bg-danger rounded pad">
+        <h1>Enter Flavor Material Here</h1>
         <!-- 1st Row: Enter the Raw Material and check boxed for nat or art -->
         <div class="form-group">
           <label for="rm_name">Raw Material Name</label>
           <input class="form-control" placeholder="..." id="rm-name" type="text" class="validate">
-          <small class="form-text text-muted">Enter a name of Flavor Chemical. </small>
         </div>
-        <br/>
-        <div class="row">
-          <p class="col-6">
-            <label >
-              <input id="rm-natural" type="checkbox" />
-              <span>Natural</span>
-            </label>
-          </p>
-          <p class="col-6">
-            <label >
-              <input id="rm-artificial" type="checkbox" />
-              <span>Artificial</span>
-            </label>
-          </p>
+        <!-- 2nd Row Check Boxes -->
+        <div class="form-group">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="rm-natural" value="natural">
+            <label class="form-check-label" for="rm-natural">Natural</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="rm-artificial" value="artificial">
+            <label class="form-check-label" for="rm-artificial">Artificial</label>
+          </div>
         </div>
-
-
-        <!-- 3rd Row: Enter the ppm and tba -->
-        <div class="row">
-          <p class="">
-            <label for="enter_ppm">Enter ppm</label>
-            <input type="range" id="test5" min="0" max="500" />
-          </p>
+        <!-- 3rd Row: Enter the ppm and unit -->
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputAddress2">Level Tasted at:</label>
+            <input type="text" class="form-control" id="rm-dosage-number" placeholder="10">
+          </div>
+          <div class="form-group">
+            <label for="rm-unit">Unit</label>
+            <select class="form-control" id="rm-dosage-unit">
+              <option selected disabled value="">Choose</option>
+              <option>%</option>
+              <option>ppm</option>
+              <option>ppb</option>
+            </select>
+          </div>
         </div>
 
         <!-- 4th Row Describe the Info -->
-        <div class="row">
-          <div class="">
-            <label for="description_rm">Description of Raw Material </label>
-            <textarea id="rm-description" class="materialize-textarea"></textarea>
-          </div>
+        <div class="form-group">
+          <label for="rm-description">Description of Raw Material</label>
+          <textarea class="form-control" id="rm-description" rows="5"></textarea>
         </div>
 
         <!-- 5th Row is the Submit Button -->
-        <div class="row">
-          <div class="">
-            <input type="submit" value="Submit">
-          </div>
-        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
       </form>
       <div class="col-2"></div>
     </div>
