@@ -1,0 +1,23 @@
+{
+  "name": "flavorlog",
+  "version": "1.0.0",
+  "description": "App for entering information of flavor raw materials",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejandro-loja/flavorlog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alejandro-loja/flavorlog/issues"
+  },
+  "homepage": "https://github.com/alejandro-loja/flavorlog#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
