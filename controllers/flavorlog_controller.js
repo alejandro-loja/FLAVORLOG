@@ -1,17 +1,17 @@
-var express = require('express');
+// This is where all the pages are made
+
+const express = require('express');
 
 // var burger = require("../models/burger.js");
 
-var router = express.Router();
+const router = express.Router();
+
+const path = require('path');
 
 console.log("------");
 
 
 // homepage
-// router.get('/', function(req, res) {
-//     res.sendFile(path.join(__dirname + '/index.html'));
-// });
-
 router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
