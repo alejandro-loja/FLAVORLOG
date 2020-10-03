@@ -1,8 +1,6 @@
 const express = require('express');
 
-const PORT = process.env.PORT || 8080
-
-// const mysql = require('mysql');
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
@@ -19,6 +17,6 @@ var routes = require("./controllers/flavorlog_controller.js");
 app.use(routes);
 
 
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
 })

@@ -1,0 +1,1 @@
+INSERT INTO `flavorlog_db`.`flavors` (`rm_name`, `rm_na`, `rm_dosage_number`, `rm_dosage_unit`, `rm_description`) VALUES ('Vanillin', 'natural and artificial', '60', 'ppm', 'Sweet, phenolic, powdery, slight spice');
