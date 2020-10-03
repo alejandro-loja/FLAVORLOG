@@ -3,7 +3,7 @@ CREATE DATABASE flavorlog_db;
 
 use flavorlog_db;
 
-CREATE TABLE flavors (
+CREATE TABLE flavorlogs (
 	id int NOT NULL AUTO_INCREMENT,
     rm_name varchar(100) NOT NULL,
     rm_na varchar(50) NOT NULL,

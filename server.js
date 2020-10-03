@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Import routes and give the server access to them.
-var routes = require("./controllers/flavorlog_controller.js");
+const routes = require("./controllers/flavorlog_controller.js");
 
 app.use(routes);
 

@@ -1,26 +1,26 @@
 var orm = require("../config/orm.js");
 
 
-// flavors is the name of the table
+// flavorlogs is the name of the sql table
 var flavorlog = {
     all: function (cb) {
-        orm.selectAll("flavors", function (res) {
+        orm.selectAll("flavorlogs", function (res) {
             cb(res);
         })
     },
     // The variables cols and vals are arrays.
     create: function (cols, vals, cb) {
-        orm.insertOne("flavors", cols, vals, function (res) {
+        orm.insertOne("flavorlogs", cols, vals, function (res) {
             cb(res);
         });
     },
     update: function (objColVals, condition, cb) {
-        orm.updateOne("flavors", objColVals, condition, function (res) {
+        orm.updateOne("flavorlogs", objColVals, condition, function (res) {
             cb(res);
         });
     },
     delete: function (condition, cb) {
-        orm.delete("flavors", condition, function (res) {
+        orm.delete("flavorlogs", condition, function (res) {
             cb(res);
         });
     }
