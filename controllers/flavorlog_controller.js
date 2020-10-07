@@ -13,16 +13,20 @@ console.log("------");
 
 // homepage
 router.get('/', function(req, res) {
-    // res.sendFile(path.join(__dirname, "..", "/views/index.html"));
-    flavorlog.all(function (data) {
-        var hasFlavorlog = {
-          flavorlogKinds: data
-        };
-        console.log(hasFlavorlog);
-        res.sendFile(path.join(__dirname, "..", "/views/index.html"));
-      });
+  console.log('Went Home')
+  res.sendFile(path.join(__dirname, "..", "/views/index.html"));
 
 });
 
+router.get('/results', function(req, res) {
+  flavorlog.all(function (data) {
+      var hasFlavorlog = {
+        flavorlogKinds: data
+      };
+      console.log(hasFlavorlog);
+      res.sendFile(path.join(__dirname, "..", "/views/results.html"));
+    });
+
+});
 
 module.exports = router;
