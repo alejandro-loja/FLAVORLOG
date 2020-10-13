@@ -12,10 +12,13 @@ console.log("------");
 
 
 // homepage
-router.get('/', function(req, res) {
-  console.log('Went Home')
-  res.sendFile(path.join(__dirname, "..", "/views/index.html"));
+// router.get('/', function(req, res) {
+//   console.log('Went Home')
+//   res.sendFile(path.join(__dirname, "..", "/views/index.html"));
 
+// });
+router.get("/", function (req, res) {
+    res.render("index");
 });
 
 router.get('/results', function(req, res) {
