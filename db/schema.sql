@@ -7,7 +7,7 @@ CREATE TABLE flavorlogs (
 	id int NOT NULL AUTO_INCREMENT,
     rm_name varchar(100) NOT NULL,
     rm_na varchar(50) NOT NULL,
-    rm_dosage_number float(5) NOT NULL,
+    rm_dosage_number double(10) NOT NULL,
     rm_dosage_unit varchar(5) NOT NULL,
     rm_description varchar(250) NOT NULL,
     PRIMARY KEY(id)
