@@ -1,32 +1,30 @@
 <div class="container">
     <div class="row vertical-center">
 
-        <div class="col-2"></div>
-
-
         <!-- This form element is the 2nd in 3 columns with a bigger width ie space and is horizontally centered. -->
-        <form id="entry-form" class="col-8 my-auto shadow-lg bg-danger rounded pad">
+        <form id="entry-form" class="col-7 my-auto shadow-lg bg-danger rounded pad">
             <h1>Enter Flavor Material Here</h1>
             <!-- 1st Row: Enter the Raw Material and check boxed for nat or art -->
             <div class="form-group">
                 <label for="rm_name">Raw Material Name</label>
-                <input class="form-control" placeholder="Name of Raw Material" id="rm-name" type="text" class="validate" required>
+                <input class="form-control" placeholder="Name of Raw Material" id="rm-name" type="text" class="validate"
+                    required>
             </div>
             <!-- 2nd Row Radio Boxes -->
             <div class="form-group">
                 <div class="form-check form-check-inline">
-                    <input name="rm-na" class="form-check-input" type="radio" id="rm-natural" value="natural">
+                    <input name="rm-na" class="form-check-input" type="radio" id="rm-natural" value="Natural">
                     <label class="form-check-label" for="rm-natural">Natural</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input name="rm-na" class="form-check-input" type="radio" id="rm-artificial" value="artificial"
+                    <input name="rm-na" class="form-check-input" type="radio" id="rm-artificial" value="Artificial"
                         checked>
                     <label class="form-check-label" for="rm-artificial">Artificial</label>
                 </div>
                 <div class="form-check form-check-inline">
                     <input name="rm-na" class="form-check-input" type="radio" id="rm-natural"
-                        value="natural and artificial">
-                    <label class="form-check-label" for="rm-natural-artificial">Natural & Artificial</label>
+                        value="Natural and Artificial">
+                    <label class="form-check-label" for="rm-natural-artificial">Natural and Artificial</label>
                 </div>
             </div>
             <!-- 3rd Row: Enter the ppm and unit -->
@@ -56,6 +54,22 @@
             <button type="submit" class="btn btn-secondary">Submit</button>
 
         </form>
-        <div class="col-2"></div>
+
+        <div class="col-1"></div>
+
+        <div class="col-4 border">
+            {{#each flavor_data}}
+            <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.rm_name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{this.rm_na}}</h6>
+                    <p class="card-text">{{this.rm_description}}</p>
+                    <a href="#" class="btn btn-warning">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+            {{!-- <div>{{this.rm_name}}</div> --}}
+            {{/each}}
+        </div>
     </div>
 </div>
