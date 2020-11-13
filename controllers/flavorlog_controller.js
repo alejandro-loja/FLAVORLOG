@@ -7,6 +7,8 @@ const router = express.Router();
 const path = require('path');
 
 console.log("------");
+
+
 router.get("/", function (req, res) {
     res.redirect("/results");
 });
@@ -16,6 +18,18 @@ router.get('/results', function(req, res) {
     res.render("index", {flavor_data: flavorData});
   });
 
+});
+
+// post 
+router.post("/flavorlog/create", function(req, res) {
+  console.log(req.body);
+  const {rmName,rmNa,rmDosNum,rmDosUnit,rmDesc} = req.body;
+  
+  flavorlog.create([rmName,rmNa,rmDosNum,rmDosUnit,rmDesc]
+  , function (result) {
+      // Send back the ID of the new quote
+      res.json({ id: result.insertId });
+    });
 });
 
 module.exports = router;

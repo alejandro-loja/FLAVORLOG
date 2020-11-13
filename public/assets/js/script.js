@@ -3,20 +3,13 @@ $(document).ready(function () {
 
 
   //Detect if anything written
-  const validateForm = (string) => {
-    if (string === "") {
-      alert("Name must be filled out");
-      return false;
-    }
-  };
+  // const validateForm = (string) => {
+  //   return string === "" ? false : true;
+  // };
 
   // Tells me is the input is a number or not.
   const isThisNum = (number) => {
-    if (isNaN(number)) {
-      console.log(`${number} is not a number`);
-    } else {
-      console.log(`${number} is a number.`)
-    }
+    return isNaN(number) ? false : true;
   };
   //This function tells you the value of the selected radio button
   // You need the id of the form and name of the radio buttons
@@ -32,36 +25,68 @@ $(document).ready(function () {
     }
   };
 
-  const stringLength = (number, stringLength) => {
-    number.toString().length > stringLength ? 
-    console.log(`${number} is too long. Please reduce the length`) : 
-    console.log(`${number} length is OK.`)
+  const maxStringLength = (number, stringLength) => {
+     return number.toString().length > stringLength ?
+      // console.log(`${number} is too long. Please reduce the length`)
+      false :
+      // console.log(`${number} length is OK.`)
+      true;
   };
 
 
 
   $("#entry-form").submit(function (event) {
 
-    console.log('Submit');
+    console.log('Submitted');
     event.preventDefault();
 
 
     // Value (or what is written by the client) in the input box
-    const rmName = $("#rm-name").val();
-    const rmDesc = $("#rm-description").val();
+    const rmName = $("#rm-name").val().trim();
+    const rmDesc = $("#rm-description").val().trim();
     const rmDosNum = $("#rm-dosage-number").val();
     const rmDosUnit = $("#rm-dosage-unit").val();
     // console.log(rmName, rmDesc, rmDosNum, rmDosUnit);
     //Value of Radio Button Pressed
-    const val = getRadioVal(document.getElementById('entry-form'), 'rm-na');
+    const rmNa = getRadioVal(document.getElementById('entry-form'), 'rm-na');
     //fixes validates radio buttons
-    console.log(val);
+    // console.log(valOfRM_NA);
     // Form Validation (need for mySQL based on schema)
-    isThisNum(rmDosNum);
-    stringLength(rmName, 100);
-    stringLength(rmDosNum, 5);
-    stringLength(rmDesc, 250);
-    validateForm(rmName);
+
+
+    if(maxStringLength(rmName, 100) & isThisNum(rmDosNum) & maxStringLength(rmDosNum, 5) & maxStringLength(rmDesc, 250)) {
+      console.log('all are true')
+      //AJAX POST
+      const newEntry = {
+        rmName: rmName,
+        rmNa: rmNa,
+        rmDosNum: rmDosNum,
+        rmDosUnit: rmDosUnit,
+        rmDesc: rmDesc
+      };
+      console.log(newEntry);
+      // Send the POST request.
+      $.ajax("/flavorlog/create", {
+        type: "POST",
+        data: newEntry
+      }).then(
+        function() {
+          console.log("created a new Entry");
+          // Reload the page to get the updated list
+          location.reload();
+        }
+      );
+
+    }
+
+    // $.ajax({
+    //   method: "PUT",
+    //   url: "/burgers/" + burger_id
+    // }).then(function(data) {
+    //   // reload page to display devoured burger in proper column
+    //   location.reload();
+    // });
+
   });
 
 });

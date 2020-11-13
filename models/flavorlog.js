@@ -9,8 +9,8 @@ var flavorlog = {
         })
     },
     // The variables cols and vals are arrays.
-    create: function (cols, vals, cb) {
-        orm.insertOne("flavorlogs", cols, vals, function (res) {
+    create: function (vals, cb) {
+        orm.insertOne("flavorlogs", ["rm_name","rm_na","rm_dosage_number","rm_dosage_unit","rm_description"], vals, function (res) {
             cb(res);
         });
     },
