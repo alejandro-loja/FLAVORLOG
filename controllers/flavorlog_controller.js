@@ -32,4 +32,14 @@ router.post("/flavorlog/create", function(req, res) {
     });
 });
 
+
+router.delete("/flavorlog/delete/:id", function(req, res) {
+  const idName = `id = ${req.params.id}`;
+  console.log(req.body.msg) 
+
+  flavorlog.delete(idName, function(){
+    res.status(200).end();
+  })
+});
+
 module.exports = router;
