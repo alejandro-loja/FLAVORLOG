@@ -42,4 +42,13 @@ router.delete("/flavorlog/delete/:id", function(req, res) {
   })
 });
 
+
+router.put("/flavorlog/update/:id", function(req, res) {
+  const idName = `id = ${req.params.id}`;
+  console.log(req.body.msg) 
+
+  flavorlog.update(idName, function(){
+    res.status(200).end();
+  })
+});
 module.exports = router;

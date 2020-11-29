@@ -67,7 +67,7 @@ $(document).ready(function () {
   $(".entry-delete").click(function () {
     const idOfEntry = $(this).data('id');
     const deleteIdPkge = {
-      msg: "Yerp"
+      msg: `Entry ${idOfEntry} has been deleted.`
     }
 
     $.ajax("/flavorlog/delete/" + idOfEntry, {
@@ -80,8 +80,24 @@ $(document).ready(function () {
     );
   });
 
+  $(".entry-edit").click(function () {
+    const idOfEntry = $(this).data('id');
+    const test1 = $(this).parent().find('h5').html();
+    const test2 = $(this).parent().find('p').html();
+    console.log(test1, test2);
 
+    // const editIdPkge = {
+    //   msg: `Entry ${idOfEntry} has been deleted.`
+    // }
 
-
+    // $.ajax("/flavorlog/update/" + idOfEntry, {
+    //   type: "PUT",
+    //   data: editIdPkge
+    // }).then(
+    //   function () {
+    //     location.reload();
+    //   }
+    // );
+  });
 
 });
