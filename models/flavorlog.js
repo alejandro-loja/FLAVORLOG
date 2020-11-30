@@ -8,6 +8,11 @@ var flavorlog = {
             cb(res);
         })
     },
+    getOne: function (vals,cb) {
+        orm.selectOne("flavorlogs", vals ,function (res) {
+            cb(res);
+        })
+    },
     // The variables cols and vals are arrays.
     create: function (vals, cb) {
         orm.insertOne("flavorlogs", ["rm_name","rm_na","rm_dosage_number","rm_dosage_unit","rm_description"], vals, function (res) {

@@ -13,6 +13,16 @@ router.get("/", function (req, res) {
     res.redirect("/results");
 });
 
+
+router.get("/test", function (req, res) {
+    
+  flavorlog.getOne("4", function (flavorData) {
+        // Send back the ID of the new quote
+        res.send('Hello World')
+        console.log(flavorData)
+      });
+});
+
 router.get('/results', function(req, res) {
   flavorlog.all(function (flavorData) {
     res.render("index", {flavor_data: flavorData});

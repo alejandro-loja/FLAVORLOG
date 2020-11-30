@@ -65,7 +65,8 @@ $(document).ready(function () {
   });
 
   $(".entry-delete").click(function () {
-    const idOfEntry = $(this).data('id');
+    const idOfEntry = $(this).parent().data('id');
+
     const deleteIdPkge = {
       msg: `Entry ${idOfEntry} has been deleted.`
     }
@@ -78,13 +79,17 @@ $(document).ready(function () {
         location.reload();
       }
     );
+
   });
 
   $(".entry-edit").click(function () {
-    const idOfEntry = $(this).data('id');
-    const test1 = $(this).parent().find('h5').html();
-    const test2 = $(this).parent().find('p').html();
-    console.log(test1, test2);
+    const idOfEntry = $(this).parent().data('id');
+
+    const entryTitle = $(this).parent().find('h5').html();
+    const entryDesc = $(this).parent().find('p').html();
+
+    $(this).parent().find('.entry-delete').addClass('d-none');
+    $(this).parent().find('.entry-submit').removeClass('d-none');
 
     // const editIdPkge = {
     //   msg: `Entry ${idOfEntry} has been deleted.`
@@ -99,5 +104,7 @@ $(document).ready(function () {
     //   }
     // );
   });
+
+  
 
 });

@@ -45,6 +45,23 @@ var orm = {
             cb(result);
         });
     },
+
+    //get from ID
+    selectOne: function (tableInput,vals,cb) {
+      var queryString = "SELECT * FROM " + tableInput;
+      queryString += " WHERE id =(";
+      queryString += printQuestionMarks(vals.length);
+      queryString +=") "
+
+
+      connection.query(queryString, vals, function(err, result) {
+        if (err) {
+          throw err;
+        }
+  
+        cb(result);
+      });
+  },
     insertOne: function(table, cols, vals, cb) {
       console.log(vals);
         var queryString = "INSERT INTO " + table;
