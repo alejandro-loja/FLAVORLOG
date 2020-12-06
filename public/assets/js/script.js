@@ -120,6 +120,7 @@ $(document).ready(function () {
     }).then(
       function (response) {
         console.log(response);
+        $(".modal-body").html(response["rm_name"])
       }
     );
 

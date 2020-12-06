@@ -14,7 +14,7 @@ router.get("/", function (req, res) {
     res.redirect("/results");
 });
 
-
+//get one entry only
 router.get("/flavorlog/getOne/:id", function (req, res) {
 
   const editId = req.params.id;
