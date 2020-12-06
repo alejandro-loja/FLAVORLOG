@@ -105,6 +105,24 @@ $(document).ready(function () {
     // );
   });
 
-  
+  $(".view-entry").click(function () {
+
+    console.log("Clicked on entry-view");
+
+    const idOfEntry = $(this).parent().data('id');
+
+    const editIdPkge = {
+      msg: `Entry ${idOfEntry} has been edited.`
+    }
+    $.ajax("/flavorlog/getOne/" + idOfEntry, {
+      type: "GET",
+      data: editIdPkge
+    }).then(
+      function (response) {
+        console.log(response);
+      }
+    );
+
+  });
 
 });

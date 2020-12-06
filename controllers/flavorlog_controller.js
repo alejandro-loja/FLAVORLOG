@@ -5,6 +5,7 @@ const router = express.Router();
 
 // for __dirname
 const path = require('path');
+const { response } = require('express');
 
 console.log("------");
 
@@ -14,12 +15,16 @@ router.get("/", function (req, res) {
 });
 
 
-router.get("/test", function (req, res) {
-    
-  flavorlog.getOne("4", function (flavorData) {
+router.get("/flavorlog/getOne/:id", function (req, res) {
+
+  const editId = req.params.id;
+  console.log(`EditId is ${editId}`)
+
+  //editId in array so it will always count the .length as one in the printquestionmarks function
+  flavorlog.getOne([editId], function (result) {
         // Send back the ID of the new quote
-        res.send('Hello World')
-        console.log(flavorData)
+        console.log(result)
+        res.json(result[0]);
       });
 });
 
