@@ -119,8 +119,13 @@ $(document).ready(function () {
       data: editIdPkge
     }).then(
       function (response) {
+        const { rm_name, rm_na, rm_dosage_number, rm_dosage_unit, rm_description } = response;
         console.log(response);
-        $(".modal-body").html(response["rm_name"])
+        $(".modal-title").text(`${rm_name} - ${rm_na}`);
+        $(".modal-body").html(`
+      <h6>Evaluated at ${rm_dosage_number}${rm_dosage_unit}</h6>
+      <p>${rm_description}</p>
+      `)
       }
     );
 
