@@ -21,6 +21,11 @@ const routes = require("./controllers/flavorlog_controller.js");
 
 app.use(routes);
 
+// 404
+app.use(function (req, res, next) {
+    return res.status(404).send({ message: 'Route' + req.url + ' Not found.' });
+});
+
 
 app.listen(PORT, () => {
     console.log(`Server listening on: http://localhost:${PORT}`);

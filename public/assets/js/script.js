@@ -23,34 +23,10 @@ $(document).ready(function () {
     }
   };
 
-  // // Tells me is the input is a number or not.
-  // const isThisNum = (number) => {
-  //   return isNaN(number) ? false : true;
-  // };
 
-  // //This function tells you the value of the selected radio button
-  // // You need the id of the form and name of the radio buttons
-  // const getRadioVal = (form, name) => {
-  //   // get list of radio buttons with specified name
-  //   const radios = form.elements[name];
-  //   // loop through list of radio buttons
-  //   for (var i = 0, len = radios.length; i < len; i++) {
-  //     if (radios[i].checked) { // radio checked?
-  //       return radios[i].value; // if so, hold its value in val
-  //     }
-  //   };
-  // };
 
-  // const maxStringLength = (number, stringLength) => {
-  //   return number.toString().length > stringLength ?
-  //     // console.log(`${number} is too long. Please reduce the length`)
-  //     false :
-  //     // console.log(`${number} length is OK.`)
-  //     true;
-  // };
-
+  
   $("#entry-form").submit(function (event) {
-    console.log('Submitted');
     event.preventDefault();
 
     // Value (or what is written by the client) in the input box
@@ -60,7 +36,6 @@ $(document).ready(function () {
     const rmDosUnit = $("#rm-dosage-unit").val();
     //Value of Radio Button Pressed
     const rmNa = stnVal.getRadioVal(document.getElementById('entry-form'), 'rm-na');
-    //fixes validates radio buttons
     // Form Validation (need for mySQL based on schema)
 
     if (stnVal.maxStringLength(rmName, 100)
@@ -90,6 +65,8 @@ $(document).ready(function () {
     }
   });
 
+
+
   $(".entry-delete").click(function () {
     const idOfEntry = $(this).parent().data('id');
 
@@ -107,6 +84,8 @@ $(document).ready(function () {
     );
 
   });
+
+
 
   $(".entry-edit").click(function () {
     const idOfEntry = $(this).parent().data('id');
@@ -130,6 +109,7 @@ $(document).ready(function () {
     //   }
     // );
   });
+
 
   $(".view-entry").click(function () {
 
