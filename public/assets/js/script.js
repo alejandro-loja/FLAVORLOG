@@ -62,10 +62,20 @@ $(document).ready(function () {
           location.reload();
         }
       );
-    }
+    } 
   });
 
 
+  //DRY this
+  $("#modal-close-x").click(function(){
+    $(".modal-title").text("Message");
+    $(".modal-body").html('<h6 class="text-center">Please Enter Valid Data</h6>');
+  })
+
+  $("#modal-close-button").click(function(){
+    $(".modal-title").text("Message");
+    $(".modal-body").html('<h6 class="text-center">Please Enter Valid Data</h6>');
+  })
 
   $(".entry-delete").click(function () {
     const idOfEntry = $(this).parent().data('id');
