@@ -10,13 +10,13 @@ console.log("------");
 // ROUTE FOR MAIN PAGE & TO RETRIEVE ALL ENTRIES ON MYSQL
 router.get("/", function (req, res) {
   flavorlog.all(function (flavorData) {
-    res.render("index", {flavor_data: flavorData});
+    res.render("index", { flavor_data: flavorData });
   });
 });
 
 router.get("/one_entry", function (req, res) {
   flavorlog.all(function (flavorData) {
-    res.render("one_entry", {flavor_data: flavorData});
+    res.render("one_entry", { flavor_data: flavorData });
   });
 });
 
@@ -28,41 +28,42 @@ router.get("/flavorlog/getOne/:id", function (req, res) {
 
   //editId in array so it will always count the .length as one in the printquestionmarks function
   flavorlog.getOne([editId], function (result) {
-        // Send back the ID of the new quote
-        console.log(result)
-        // result[0] is getting the first and only object returned
-        res.json(result[0]);
-      });
+    // Send back the ID of the new quote
+    console.log(result)
+    // result[0] is getting the first and only object returned
+    res.json(result[0]);
+  });
 });
 
 // ROUTE TO CREATE AN ENTRY ON MYSQL
-router.post("/flavorlog/create", function(req, res) {
+router.post("/flavorlog/create", function (req, res) {
   console.log(req.body);
-  const {rmName,rmNa,rmDosNum,rmDosUnit,rmDesc} = req.body;
-  
-  flavorlog.create([rmName,rmNa,rmDosNum,rmDosUnit,rmDesc]
-  , function (result) {
+  const { rmName, rmNa, rmDosNum, rmDosUnit, rmDesc } = req.body;
+
+  flavorlog.create([rmName, rmNa, rmDosNum, rmDosUnit, rmDesc]
+    , function (result) {
       // Send back the ID of the new quote
       res.json({ id: result.insertId });
     });
 });
 
 // ROUTE TO DELETE AN ENTRY ON MYSQL
-router.delete("/flavorlog/delete/:id", function(req, res) {
+router.delete("/flavorlog/delete/:id", function (req, res) {
   const idName = `id = ${req.params.id}`;
-  console.log(req.body.msg) 
+  console.log(req.body.msg)
 
-  flavorlog.delete(idName, function(){
+  flavorlog.delete(idName, function () {
     res.status(200).end();
   })
 });
 
-
-router.put("/flavorlog/update/:id", function(req, res) {
+// ROUTE TO EDIT AN ENTRY
+router.put("/flavorlog/update/:id", function (req, res) {
   const idName = `id = ${req.params.id}`;
-  console.log(req.body.msg) 
-
-  flavorlog.update(idName, function(){
+  console.log(idName);
+  console.log(req.body);
+  const whatIsChanging = {rm_description : req.body.rmDesc};
+  flavorlog.update(whatIsChanging, idName, function () {
     res.status(200).end();
   })
 });

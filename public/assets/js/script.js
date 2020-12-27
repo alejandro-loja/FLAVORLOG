@@ -78,7 +78,7 @@ $(document).ready(function () {
   })
 
   $(".entry-delete").click(function () {
-    const idOfEntry = $(this).parent().data('id');
+    const idOfEntry = $(this).parent().parent().find('p').data('id');
 
     const deleteIdPkge = {
       msg: `Entry ${idOfEntry} has been deleted.`
@@ -95,29 +95,30 @@ $(document).ready(function () {
 
   });
 
-
+/////
 
   $(".entry-edit").click(function () {
-    const idOfEntry = $(this).parent().data('id');
+    const idOfEntry = $(this).parent().parent().find('p').data('id');
+    console.log(`${idOfEntry} is the id of the entry`)
 
-    const entryTitle = $(this).parent().find('h5').html();
-    const entryDesc = $(this).parent().find('p').html();
+    // const rmName = $(this).parent().find('h5').html();
+    const rmDesc = $(this).parent().parent().find('p').html();
 
-    $(this).parent().find('.entry-delete').addClass('d-none');
-    $(this).parent().find('.entry-submit').removeClass('d-none');
+    // $(this).parent().find('.entry-delete').addClass('d-none');
+    // $(this).parent().find('.entry-submit').removeClass('d-none');
 
-    // const editIdPkge = {
-    //   msg: `Entry ${idOfEntry} has been deleted.`
-    // }
+    const editIdPkge = {
+      rmDesc
+    };
 
-    // $.ajax("/flavorlog/update/" + idOfEntry, {
-    //   type: "PUT",
-    //   data: editIdPkge
-    // }).then(
-    //   function () {
-    //     location.reload();
-    //   }
-    // );
+    $.ajax("/flavorlog/update/" + idOfEntry, {
+      type: "PUT",
+      data: editIdPkge
+    }).then(
+      function () {
+        location.reload();
+      }
+    );
   });
 
 
@@ -128,7 +129,7 @@ $(document).ready(function () {
     const idOfEntry = $(this).parent().data('id');
 
     const editIdPkge = {
-      msg: `Entry ${idOfEntry} has been edited.`
+      msg: `Entry ${idOfEntry} has been viewed.`
     }
     $.ajax("/flavorlog/getOne/" + idOfEntry, {
       type: "GET",
@@ -140,7 +141,7 @@ $(document).ready(function () {
         $(".modal-title").text(`${rm_name} - ${rm_na}`);
         $(".modal-body").html(
           `<h6>Evaluated at ${rm_dosage_number}${rm_dosage_unit}</h6>
-                <p contenteditable="true">${rm_description}</p>`
+                <p data-id="${idOfEntry} "contenteditable="true">${rm_description}</p>`
         )
       }
     );
