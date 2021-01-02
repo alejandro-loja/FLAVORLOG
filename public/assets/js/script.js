@@ -25,15 +25,18 @@ $(document).ready(function () {
   };
 
   //DRY this
-  $("#modal-close-x").click(function(){
-    $(".modal-title").text("Message");
-    $(".modal-body").html('<h6 class="text-center">Please Enter Valid Data</h6>');
-  })
+  // $("#modal-close-x").click(function(){
+  //   $(".modal-title").text("Message");
+  //   $(".modal-body").html('<h6 class="text-center">Please Enter Valid Data</h6>');
+  //   $(".modal-footer").html('<button id="modal-close-button" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>');
+  // })
 
-  $("#modal-close-button").click(function(){
-    $(".modal-title").text("Message");
-    $(".modal-body").html('<h6 class="text-center">Please Enter Valid Data</h6>');
-  })
+  // $("#modal-close-button").click(function(){
+  //   $(".modal-title").text("Message");
+  //   $(".modal-body").html('<h6 class="text-center">Please Enter Valid Data</h6>');
+  //   $(".modal-footer").html('<button id="modal-close-button" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>');
+
+  // })
 
   // FUNCTION - contains POST/CREATE 
   // 1. Get values from inputs and trims. 2. Conditional to see if data is valid length and type/format to ready for mySQL. 3. Creates entry if conditions are met.
@@ -131,8 +134,8 @@ $(document).ready(function () {
       function (response) {
         const { rm_name, rm_na, rm_dosage_number, rm_dosage_unit, rm_description } = response;
         console.log(response);
-        $(".modal-title").text(`${rm_name} - ${rm_na}`);
-        $(".modal-body").html(
+        $("#BackdropLabel").text(`${rm_name} - ${rm_na}`);
+        $("#modalBody1").html(
           `<h6>Evaluated at ${rm_dosage_number}${rm_dosage_unit}</h6>
                 <p data-id="${idOfEntry} "contenteditable="true">${rm_description}</p>`
         )
