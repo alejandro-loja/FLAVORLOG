@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+  // - Data Validation functions
   const stnVal = {
     isThisNum: function (number) {
       return isNaN(number) ? false : true;
@@ -23,9 +24,19 @@ $(document).ready(function () {
     }
   };
 
+  //DRY this
+  $("#modal-close-x").click(function(){
+    $(".modal-title").text("Message");
+    $(".modal-body").html('<h6 class="text-center">Please Enter Valid Data</h6>');
+  })
 
+  $("#modal-close-button").click(function(){
+    $(".modal-title").text("Message");
+    $(".modal-body").html('<h6 class="text-center">Please Enter Valid Data</h6>');
+  })
 
-  
+  // FUNCTION - contains POST/CREATE 
+  // 1. Get values from inputs and trims. 2. Conditional to see if data is valid length and type/format to ready for mySQL. 3. Creates entry if conditions are met.
   $("#entry-form").submit(function (event) {
     event.preventDefault();
 
@@ -65,18 +76,7 @@ $(document).ready(function () {
     } 
   });
 
-
-  //DRY this
-  $("#modal-close-x").click(function(){
-    $(".modal-title").text("Message");
-    $(".modal-body").html('<h6 class="text-center">Please Enter Valid Data</h6>');
-  })
-
-  $("#modal-close-button").click(function(){
-    $(".modal-title").text("Message");
-    $(".modal-body").html('<h6 class="text-center">Please Enter Valid Data</h6>');
-  })
-
+  // FUNCTION - contains DELETE/DELETE
   $(".entry-delete").click(function () {
     const idOfEntry = $(this).parent().parent().find('p').data('id');
 
@@ -95,18 +95,11 @@ $(document).ready(function () {
 
   });
 
-/////
-
+// FUNCTION - contains PUT/UPDATE 
   $(".entry-edit").click(function () {
     const idOfEntry = $(this).parent().parent().find('p').data('id');
     console.log(`${idOfEntry} is the id of the entry`)
-
-    // const rmName = $(this).parent().find('h5').html();
     const rmDesc = $(this).parent().parent().find('p').html();
-
-    // $(this).parent().find('.entry-delete').addClass('d-none');
-    // $(this).parent().find('.entry-submit').removeClass('d-none');
-
     const editIdPkge = {
       rmDesc
     };
@@ -121,7 +114,7 @@ $(document).ready(function () {
     );
   });
 
-
+  // FUNCTION - contains GET/READ 
   $(".view-entry").click(function () {
 
     console.log("Clicked on entry-view");
