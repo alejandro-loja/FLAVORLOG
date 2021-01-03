@@ -3,11 +3,8 @@ const express = require('express');
 const flavorlog = require("../models/flavorlog.js");
 const router = express.Router();
 
-console.log("------");
 
-
-
-// ROUTE FOR MAIN PAGE & TO RETRIEVE ALL ENTRIES ON MYSQL
+// GET/READ ROUTE - all entries
 router.get("/", function (req, res) {
   flavorlog.all(function (flavorData) {
     res.render("index", { flavor_data: flavorData });
@@ -20,11 +17,10 @@ router.get("/one_entry", function (req, res) {
   });
 });
 
-/// ROUTE TO RETEIVE ONE ENTRY AN ENTRY ON MYSQL
+// GET/READ ROUTE - one entry
 router.get("/flavorlog/getOne/:id", function (req, res) {
-
   const editId = req.params.id;
-  console.log(`EditId is ${editId}`)
+  console.log(`EditId is ${editId}`);
 
   //editId in array so it will always count the .length as one in the printquestionmarks function
   flavorlog.getOne([editId], function (result) {
@@ -35,7 +31,7 @@ router.get("/flavorlog/getOne/:id", function (req, res) {
   });
 });
 
-// ROUTE TO CREATE AN ENTRY ON MYSQL
+// POST/CREATE - one entry
 router.post("/flavorlog/create", function (req, res) {
   console.log(req.body);
   const { rmName, rmNa, rmDosNum, rmDosUnit, rmDesc } = req.body;
@@ -47,7 +43,7 @@ router.post("/flavorlog/create", function (req, res) {
     });
 });
 
-// ROUTE TO DELETE AN ENTRY ON MYSQL
+// DELETE/DELETE - one entry
 router.delete("/flavorlog/delete/:id", function (req, res) {
   const idName = `id = ${req.params.id}`;
   console.log(req.body.msg)
@@ -57,7 +53,7 @@ router.delete("/flavorlog/delete/:id", function (req, res) {
   })
 });
 
-// ROUTE TO EDIT AN ENTRY
+// PUT/UPDATE - one entry
 router.put("/flavorlog/update/:id", function (req, res) {
   const idName = `id = ${req.params.id}`;
   console.log(idName);
@@ -67,4 +63,5 @@ router.put("/flavorlog/update/:id", function (req, res) {
     res.status(200).end();
   })
 });
+
 module.exports = router;

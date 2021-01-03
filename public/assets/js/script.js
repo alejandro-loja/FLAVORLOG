@@ -22,21 +22,7 @@ $(document).ready(function () {
         // console.log(`${number} length is OK.`)
         true;
     }
-  };
-
-  //DRY this
-  // $("#modal-close-x").click(function(){
-  //   $(".modal-title").text("Message");
-  //   $(".modal-body").html('<h6 class="text-center">Please Enter Valid Data</h6>');
-  //   $(".modal-footer").html('<button id="modal-close-button" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>');
-  // })
-
-  // $("#modal-close-button").click(function(){
-  //   $(".modal-title").text("Message");
-  //   $(".modal-body").html('<h6 class="text-center">Please Enter Valid Data</h6>');
-  //   $(".modal-footer").html('<button id="modal-close-button" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>');
-
-  // })
+  };ß
 
   // FUNCTION - contains POST/CREATE 
   // 1. Get values from inputs and trims. 2. Conditional to see if data is valid length and type/format to ready for mySQL. 3. Creates entry if conditions are met.
@@ -48,7 +34,7 @@ $(document).ready(function () {
     const rmDesc = $("#rm-description").val().trim();
     const rmDosNum = $("#rm-dosage-number").val();
     const rmDosUnit = $("#rm-dosage-unit").val();
-    //Value of Radio Button Pressed
+    // Value of Radio Button Pressed
     const rmNa = stnVal.getRadioVal(document.getElementById('entry-form'), 'rm-na');
     // Form Validation (need for mySQL based on schema)
 
@@ -85,7 +71,7 @@ $(document).ready(function () {
 
     const deleteIdPkge = {
       msg: `Entry ${idOfEntry} has been deleted.`
-    }
+    };
 
     $.ajax("/flavorlog/delete/" + idOfEntry, {
       type: "DELETE",
@@ -119,14 +105,13 @@ $(document).ready(function () {
 
   // FUNCTION - contains GET/READ 
   $(".view-entry").click(function () {
-
     console.log("Clicked on entry-view");
-
     const idOfEntry = $(this).parent().data('id');
 
     const editIdPkge = {
       msg: `Entry ${idOfEntry} has been viewed.`
-    }
+    };
+
     $.ajax("/flavorlog/getOne/" + idOfEntry, {
       type: "GET",
       data: editIdPkge
@@ -141,7 +126,6 @@ $(document).ready(function () {
         )
       }
     );
-
   });
 
 });
