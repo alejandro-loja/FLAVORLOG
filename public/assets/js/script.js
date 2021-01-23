@@ -22,7 +22,7 @@ $(document).ready(function () {
         // console.log(`${number} length is OK.`)
         true;
     }
-  };ß
+  };
 
   // FUNCTION - contains POST/CREATE 
   // 1. Get values from inputs and trims. 2. Conditional to see if data is valid length and type/format to ready for mySQL. 3. Creates entry if conditions are met.
@@ -90,7 +90,7 @@ $(document).ready(function () {
     console.log(`${idOfEntry} is the id of the entry`)
     const rmDesc = $(this).parent().parent().find('p').html();
     const editIdPkge = {
-      rmDesc
+      rmDesc : rmDesc
     };
 
     $.ajax("/flavorlog/update/" + idOfEntry, {

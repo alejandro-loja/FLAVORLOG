@@ -6,6 +6,7 @@ const router = express.Router();
 
 // GET/READ ROUTE - all entries
 router.get("/", function (req, res) {
+  //flavorlog.all 
   flavorlog.all(function (flavorData) {
     res.render("index", { flavor_data: flavorData });
   });
@@ -56,8 +57,8 @@ router.delete("/flavorlog/delete/:id", function (req, res) {
 // PUT/UPDATE - one entry
 router.put("/flavorlog/update/:id", function (req, res) {
   const idName = `id = ${req.params.id}`;
-  console.log(idName);
-  console.log(req.body);
+  console.log(`idName:: ${idName}`);
+  console.log(`req.body:: ${req.body.rmDesc}`);
   const whatIsChanging = {rm_description : req.body.rmDesc};
   flavorlog.update(whatIsChanging, idName, function () {
     res.status(200).end();
